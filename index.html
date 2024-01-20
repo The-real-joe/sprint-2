@@ -41,9 +41,18 @@
   }
     // 👉 CHALLENGE 4
     function scrub(text, forbidden) {
-
+      let allowed = []
+      let not = []
+      for (let i in forbidden){
+      for(let idx = 0; idx < text.length; idx++){
+        if( text[idx] === forbidden[i] ){
+          let splitStr = text[idx].split('')
+          not.push(splitString)
+         
+        }
+      }
     }
-
+  }
     // 👉 CHALLENGE 5 (bonus, NOT graded)
     function normalizePhoneNumber(num) {
 
