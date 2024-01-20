@@ -6,20 +6,26 @@
   <script id="challenge">
     // 👉 CHALLENGE 1
     function profileActivation(profile, reason) {
-      let ifActive = []
-      let inactive = []
-  for (let idx in profile){
-    let userStatus = profile[idx]
-    if (userStatus === "active"){
-      ifactive.push(userStatus)
-    } if (userStatus === "inactive"){
-      inactive.push(userStatus)
-    }
-  }
-  return ifActive
+      
+      if (profile.active === false){
+        profile.active=true
+        delete profile.reason
+      }
+      else if (profile.active===true && reason !== undefined ){
+         
+          profile.active=false;
+          profile.reason=reason;
+        }else {
+          return "confirm status manually"
+        }
+        
+      
+    
+    return profile
   }
     // 👉 CHALLENGE 2
     function mineSweeper(grid, x, y) {
+      
 
     }
 
