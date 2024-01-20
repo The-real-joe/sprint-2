@@ -25,23 +25,57 @@
   }
     // 👉 CHALLENGE 2
     function mineSweeper(grid, x, y) {
-    const cellvalue = grid[1][0]
-    if ( cellvalue< 1 ||x <1 || y < 1){
-        return "invalid coordinates"
-      }
-    else if ( cellvalue==="🟥" || x ===  "🟥"  || y === "🟥" ){
-        return "🟥 💀"
-      }else if (cellvalue === "🟦" || x === "🟦" || y === "🟦" ){
-        return "🟦 🥳"
-      } 
-      return
+  
+      if (x < 1 || x > 3 || y < 1 || y > 3) {
+    return "invalid coordinates";
+  }
+
+  
+  const cellValue = grid[y - 1][x - 1];
+
+  if (cellValue === "🟥") {
+    return "🟥 💀"; // Hit a mine
+  } else if (cellValue === "🟦") {
+    return "🟦 🥳"; // Safe spot
+  }
+
+  return "Unknown result";
+      
+  
     }
 
     // 👉 CHALLENGE 3
     function booleanize(obj) {
-    
+   /* if ( obj === 0){
+      obj = false
+    } if (obj === 1){
+      obj= true
+    } if (obj === null){
+      delete obj
+    }if (obj.split('') > 9){
+      return "shorten all prop names to 9 chars or less"
+    }
+    return*/
+    const result = {};
 
- 
+for (const prop in obj) {
+  if (obj.hasOwnProperty(prop)) {
+    if (prop.length > 9) {
+      return "shorten all prop names to 9 chars or less";
+    }const value = obj[prop];
+    if (value === null) {
+    continue;
+    } else if (value === 0) {
+      result[prop] = false;
+    } else if (value === 1) {
+       result[prop] = true;
+    } else {
+     result[prop] = value;
+    }
+  }
+}
+
+return result;
 
     }
     // 👉 CHALLENGE 4
@@ -56,6 +90,10 @@
   
     // 👉 CHALLENGE 5 (bonus, NOT graded)
     function normalizePhoneNumber(num) {
+      if (num.length !== 10 || !/^\d+$/.test(num)) {
+    return "Invalid phone number";
+  }const formattedNumber = `(${num.substring(0, 3)}) ${num.substring(3, 6)}-${num.substring(6)}`;
+  return formattedNumber;
 
     }
 
