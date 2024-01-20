@@ -25,40 +25,35 @@
   }
     // 👉 CHALLENGE 2
     function mineSweeper(grid, x, y) {
-      
-
+    const cellvalue = grid[1][0]
+    if ( cellvalue< 1 ){
+        return "invalid coordinates"
+      }
+    else if ( cellvalue==="🟥"  ){
+        return "🟥 💀"
+      }else if (cellvalue === "🟦"  ){
+        return "🟦 🥳"
+      } 
+      return
     }
 
     // 👉 CHALLENGE 3
     function booleanize(obj) {
-      let result = 0
-      for(let idx = 0; idx < obj.length; idx++){
-      if (obj[idx] === 0) {
-        obj[idx]=false
-      } if (obj[idx] === 1){
-        obj[idx] = true
-      } if (obj[idx]=== null){
-        delete idx, obj[idx]
-      }if( obj.length > 9){
-        return "shorten all prop names to 9 chars or less"
-      }
+    
+
+ 
+
     }
-    return result
-  }
     // 👉 CHALLENGE 4
     function scrub(text, forbidden) {
-      let allowed = []
-      let not = []
-      for (let i in forbidden){
-      for(let idx = 0; idx < text.length; idx++){
-        if( text[idx] === forbidden[i] ){
-          let splitStr = text[idx].split('')
-          not.push(splitString)
-         
-        }
-      }
-    }
-  }
+      forbidden.forEach(word => {
+    const registry = new RegExp(`\\b${word}\\b`, 'gi');
+    text = text.replace(registry, 'x'.repeat(word.length));
+  });
+
+  return text;
+}
+  
     // 👉 CHALLENGE 5 (bonus, NOT graded)
     function normalizePhoneNumber(num) {
 
