@@ -6,9 +6,18 @@
   <script id="challenge">
     // 👉 CHALLENGE 1
     function profileActivation(profile, reason) {
-
+      let ifActive = []
+      let inactive = []
+  for (let idx in profile){
+    let userStatus = profile[idx]
+    if (userStatus === "active"){
+      ifactive.push(userStatus)
+    } if (userStatus === "inactive"){
+      inactive.push(userStatus)
     }
-
+  }
+  return ifActive
+  }
     // 👉 CHALLENGE 2
     function mineSweeper(grid, x, y) {
 
@@ -16,9 +25,18 @@
 
     // 👉 CHALLENGE 3
     function booleanize(obj) {
-
+      let result = 0
+      for(let idx = 0; idx < obj.length; idx++){
+      if (obj[idx] === 0) {
+        obj[idx]=false
+      } if (obj[idx] === 1){
+        obj[idx] = true
+      } if (obj[idx]=== null){
+        delete idx, obj[idx]
+      }
     }
-
+    return result
+  }
     // 👉 CHALLENGE 4
     function scrub(text, forbidden) {
 
