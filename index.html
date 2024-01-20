@@ -33,6 +33,8 @@
         obj[idx] = true
       } if (obj[idx]=== null){
         delete idx, obj[idx]
+      }if( obj.length > 9){
+        return "shorten all prop names to 9 chars or less"
       }
     }
     return result
